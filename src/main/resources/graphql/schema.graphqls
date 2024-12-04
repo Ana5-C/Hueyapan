@@ -1,0 +1,93 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  getAllShoppings: [Shopping]
+  getIdShopping(idShopping: ID!): Shopping
+}
+
+type Mutation {
+  #createShoppings(shopping: ShoppingDTO): Shopping
+  #deleteShoppings(idShopping: ID!): String
+  #updateShoppings(idShopping: ID!, shopping: ShoppingDTO): Shopping
+
+    # Shopping mutations
+  createShopping(shopping: ShoppingDTO): Shopping
+  deleteShopping(idShopping: ID!): String
+  updateShopping(idShopping: ID!, shopping: ShoppingDTO): Shopping
+  
+  # Address mutations
+  createAddress(address: AddressDTO): Address
+  deleteAddress(idAddress: ID!): String
+  updateAddress(idAddress: ID!, address: AddressDTO): Address
+  
+  # Shipping mutations
+  createShipping(shipping: ShippingDTO): Shipping
+  deleteShipping(idShipping: ID!): String
+  updateShipping(idShipping: ID!, shipping: ShippingDTO): Shipping
+}
+
+type Shopping {
+  idShopping: ID!
+  amount: Int!
+  date: String!
+  phoneNumber: Int!
+  total: Int!
+  Payment: Payment!
+  Shipping: Shipping!
+  Address: Address!
+}
+
+
+type Payment{
+    idPayment: ID!
+    total: Int!
+    date: String!
+    paymentMethod: String!
+}
+
+type Address{
+  idAddress: ID!
+  city: String!
+  cologne: String!
+  municipality: String!
+  number: Int!
+  street: String!
+  zipCode: String!
+}
+
+type Shipping{
+    idShipping: ID!
+    parcel: String!
+    trackingNumber: String!
+}
+
+
+input ShoppingDTO {
+  amount: Int!
+  date: String!
+  phoneNumber: Int!
+  total: Int!
+  idPayment: ID!
+  idAddress: ID!
+  idShipping: ID!
+}
+
+input AddressDTO{
+  idAddress: ID!
+  city: String!
+  cologne: String!
+  municipality: String!
+  number: Int!
+  street: String!
+  zipCode: String!
+}
+
+input ShippingDTO{
+  idShipping: ID!
+  parcel: String!
+  trackingNumber: String!
+}
+
