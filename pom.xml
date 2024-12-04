@@ -11,7 +11,7 @@
 	<groupId>artesanas</groupId>
 	<artifactId>Hueyapan</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Hueyapan</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -37,7 +37,11 @@
 			<artifactId>modelmapper</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-
+		<dependency>
+    		<groupId>org.postgresql</groupId>
+    		<artifactId>postgresql</artifactId>
+    		<version>42.6.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
